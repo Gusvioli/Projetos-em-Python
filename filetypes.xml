@@ -4,6 +4,7 @@
     <extensionMap>
       <mapping pattern="Exercicios" type="ARCHIVE" />
       <mapping ext="gz" type="PLAIN_TEXT" />
+      <mapping pattern="codecademy" type="Python" />
     </extensionMap>
   </component>
 </application>
