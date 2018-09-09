@@ -2,4 +2,7 @@
   <component name="GeneralSettings">
     <option name="processCloseConfirmation" value="TERMINATE" />
   </component>
+  <component name="Registry">
+    <entry key="vcs.annotations.preload" value="true" />
+  </component>
 </application>
