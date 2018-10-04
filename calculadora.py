@@ -12,6 +12,8 @@ lb()["text"] = "0"
 li_val = []
 li_val.append("0")
 
+li_0 = []
+
 def acao_inicial_del():
     pass
 
@@ -24,12 +26,17 @@ def trava_acao():
     else:
         return False
 
+
 def formatar_pontos(txt):
 
+
     def li_to_str(li):
+
+
         tx = ""
         for x in li:
             tx = tx + x
+        tx = tx.replace(",",".")
 
         if tx.find("x"):
             tx = tx.replace("x", "*")
@@ -39,6 +46,7 @@ def formatar_pontos(txt):
             return tx
         else:
             return tx
+
 
     def inverter(li_in):
         return li_in[::-1]
@@ -54,142 +62,9 @@ def formatar_pontos(txt):
         i_t = "{},{}".format(in_txt, in_txt2)
         return i_t
 
-    resulta_eval = eval(li_to_str(txt))
+    l_t_s_val = li_to_str(li_val)
+    resulta_eval = eval(l_t_s_val)
     resulta_str = str(resulta_eval)
-
-
-
-    if type(eval(li_to_str(resulta_str))) == int:
-
-        resulta = str(resulta_str)
-        li = inverter(to_list(resulta))
-        tam_txt_div_3 = floor(len(li_to_str(resulta)) / 3)
-    elif type(eval(li_to_str(resulta_str))) == float:
-
-        resulta = str(resulta_str)
-        resulta = separar_vergula(resulta)
-        li = inverter(to_list(resulta[0]))
-        tam_txt_div_3 = floor(len(li_to_str(resulta[0])) / 3)
-
-    elif type(eval(li_to_str(resulta_str))) == tuple:
-
-        resulta = str(resulta_str)
-        resulta = separar_vergula(resulta)
-        li = inverter(to_list(resulta[0]))
-        tam_txt_div_3 = floor(len(li_to_str(resulta[0])) / 3)
-
-
-    if tam_txt_div_3 == 1:
-        li.insert(3, ".")
-    elif tam_txt_div_3 == 2:
-        li.insert(3, ".")
-        li.insert(7, ".")
-    elif tam_txt_div_3 == 3:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-    elif tam_txt_div_3 == 4:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-    elif tam_txt_div_3 == 5:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-        li.insert(19, ".")
-    elif tam_txt_div_3 == 6:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-        li.insert(19, ".")
-        li.insert(23, ".")
-    elif tam_txt_div_3 == 7:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-        li.insert(19, ".")
-        li.insert(23, ".")
-        li.insert(27, ".")
-    elif tam_txt_div_3 == 8:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-        li.insert(19, ".")
-        li.insert(23, ".")
-        li.insert(27, ".")
-        li.insert(31, ".")
-    elif tam_txt_div_3 == 9:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-        li.insert(19, ".")
-        li.insert(23, ".")
-        li.insert(27, ".")
-        li.insert(31, ".")
-        li.insert(35, ".")
-    elif tam_txt_div_3 == 10:
-        li.insert(3, ".")
-        li.insert(7, ".")
-        li.insert(11, ".")
-        li.insert(15, ".")
-        li.insert(19, ".")
-        li.insert(23, ".")
-        li.insert(27, ".")
-        li.insert(31, ".")
-        li.insert(35, ".")
-        li.insert(39, ".")
-
-    if li[(len(li)-1)] == ".":
-        li.pop()
-
-    li = inverter(li_to_str(li))
-
-    if type(eval(li_to_str(resulta_str))) == int:
-        return li
-    elif type(eval(li_to_str(resulta_str))) == float:
-        return juntar_vergula(li, resulta[1])
-    elif type(eval(li_to_str(resulta_str))) == tuple:
-        return juntar_vergula(li, resulta[1])
-def formatar_pontos_num(txt):
-
-    def li_to_str(li):
-        tx = ""
-        for x in li:
-            tx = tx + x
-
-        if tx.find("x"):
-            tx = tx.replace("x", "*")
-            return tx
-        elif tx.find(","):
-            tx = tx.replace(",", ".")
-            return tx
-        else:
-            return tx
-
-    def inverter(li_in):
-        return li_in[::-1]
-
-    def to_list(x):
-        return list(x)
-
-    def separar_vergula(txt):
-        tx = txt.split(".")
-        return tx
-
-    def juntar_vergula(in_txt, in_txt2):
-        i_t = "{},{}".format(in_txt, in_txt2)
-        return i_t
-
-    resulta_eval = eval(li_to_str(txt))
-    resulta_str = str(resulta_eval)
-
-
 
     if type(eval(li_to_str(resulta_str))) == int:
 
@@ -326,6 +201,7 @@ def acao_1():
         li_val.append(btn_1["text"])
         co_list_str_tam(li_val)
 
+
 def acao_2():
     if trava_acao() == False:
         if li_val[0] == "0":
@@ -399,7 +275,7 @@ def acao_mais():
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_mais["text"])
-            co_list_str_tam(li_val)
+        co_list_str_tam(li_val)
 
 def acao_menos():
     if trava_acao() == False:
@@ -510,11 +386,12 @@ def acao_virgula():
                     and li_val[(len(li_val) - 1)] != "," \
                     and li_val[(len(li_val) - 1)] != "%" \
                     and li_val[(len(li_val) - 1)] != "√":
-                li_val.append("{}".format("."))
-            co_list_str_tam(li_val)
-
+                if li_val.count(",") < 1:
+                    li_val.append("{}".format(","))
+                co_list_str_tam(li_val)
 def acao_C():
     li_val.clear()
+    li_0.clear()
     lb()["text"] = "0"
     li_val.append("0")
 
@@ -530,18 +407,22 @@ def historico():
     pass
 
 def acao_igual():
+
     co_list_str_tam(formatar_pontos(li_val))
 
     Label(lb(), font=("Verdana", 14), anchor="ne", width="27", height="1", text="{}= ".format(list_str(li_val)),
           bg="#838a80", fg="#565b54").grid()
+
     list_str_li_v = list_str(li_val).replace("x","*")
+
     list_str_t = eval(list_str_li_v)
 
     li_val.clear()
     str_to = str(list_str_t)
-
+    print(str_to)
     for ttsx in str_to:
         li_val.append(ttsx)
+
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico")
 btn_hist["bg"] = "#dbe8d4"
