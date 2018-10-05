@@ -415,14 +415,22 @@ def acao_igual():
 
     list_str_li_v = list_str(li_val).replace("x","*")
 
-    list_str_t = eval(list_str_li_v)
+    ccc = list_str_li_v.replace(",",".")
+
+    list_str_t = eval(ccc)
 
     li_val.clear()
-    str_to = str(list_str_t)
-    #print(str_to)
-    for ttsx in str_to:
-        li_val.append(ttsx)
 
+    list_str_t
+
+    str_to = str(list_str_t)
+
+
+    for ttsx in str_to:
+        if ttsx == ".":
+            li_val.append(ttsx.replace(".",","))
+        else:
+            li_val.append(ttsx)
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico")
 btn_hist["bg"] = "#dbe8d4"
