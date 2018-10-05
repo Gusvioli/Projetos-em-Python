@@ -419,7 +419,7 @@ def acao_igual():
 
     li_val.clear()
     str_to = str(list_str_t)
-    print(str_to)
+    #print(str_to)
     for ttsx in str_to:
         li_val.append(ttsx)
 
