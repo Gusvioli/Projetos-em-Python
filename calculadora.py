@@ -13,7 +13,7 @@ li_val = []
 li_val.append("0")
 
 li_0 = []
-
+li_op = []
 def acao_inicial_del():
     pass
 
@@ -275,7 +275,9 @@ def acao_mais():
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_mais["text"])
+            li_op.append(btn_mais["text"])
         co_list_str_tam(li_val)
+    li_op.clear()
 
 def acao_menos():
     if trava_acao() == False:
@@ -295,6 +297,8 @@ def acao_menos():
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_menos["text"])
             co_list_str_tam(li_val)
+            li_op.append(btn_menos["text"])
+    li_op.clear()
 
 def acao_vezes():
     if trava_acao() == False:
@@ -314,6 +318,8 @@ def acao_vezes():
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_vezes["text"])
             co_list_str_tam(li_val)
+            li_op.append(btn_vezes["text"])
+    li_op.clear()
 
 def acao_divisao():
     if trava_acao() == False:
@@ -333,6 +339,8 @@ def acao_divisao():
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_divisao["text"])
             co_list_str_tam(li_val)
+            li_op.append(btn_divisao["text"])
+    li_op.clear()
 
 def acao_p_cento():
     if trava_acao() == False:
@@ -386,14 +394,14 @@ def acao_virgula():
                     and li_val[(len(li_val) - 1)] != "," \
                     and li_val[(len(li_val) - 1)] != "%" \
                     and li_val[(len(li_val) - 1)] != "√":
-                if li_val.count(",") < 1:
-                    li_val.append("{}".format(","))
+                li_val.append("{}".format(","))
                 co_list_str_tam(li_val)
 def acao_C():
     li_val.clear()
     li_0.clear()
     lb()["text"] = "0"
     li_val.append("0")
+    li_op.clear()
 
 def acao_voltar_espaco():
     if trava_acao() == False:
@@ -407,30 +415,25 @@ def historico():
     pass
 
 def acao_igual():
+    if li_op.count("1") == 0:
+        co_list_str_tam(formatar_pontos(li_val))
 
-    co_list_str_tam(formatar_pontos(li_val))
+        Label(lb(), font=("Verdana", 14), anchor="ne", width="27", height="1", text="{}= ".format(list_str(li_val)),
+              bg="#838a80", fg="#565b54").grid()
 
-    Label(lb(), font=("Verdana", 14), anchor="ne", width="27", height="1", text="{}= ".format(list_str(li_val)),
-          bg="#838a80", fg="#565b54").grid()
-
-    list_str_li_v = list_str(li_val).replace("x","*")
-
-    ccc = list_str_li_v.replace(",",".")
-
-    list_str_t = eval(ccc)
-
-    li_val.clear()
-
-    list_str_t
-
-    str_to = str(list_str_t)
+        list_str_li_v = list_str(li_val).replace("x","*")
+        ccc = list_str_li_v.replace(",",".")
+        list_str_t = eval(ccc)
+        li_val.clear()
+        str_to = str(list_str_t)
 
 
-    for ttsx in str_to:
-        if ttsx == ".":
-            li_val.append(ttsx.replace(".",","))
-        else:
-            li_val.append(ttsx)
+        for ttsx in str_to:
+            if ttsx == ".":
+                li_val.append(ttsx.replace(".",","))
+            else:
+                li_val.append(ttsx)
+        li_op.append("1")
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico")
 btn_hist["bg"] = "#dbe8d4"
