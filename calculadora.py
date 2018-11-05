@@ -424,16 +424,16 @@ def acao_raiz():
                 and li_val[(len(li_val) - 1)] != "√":
             btn_ra = btn_ra.replace(".",",")
             co_list_str_tam(btn_ra)
-
         Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="√({})= ".format(list_str(li_val)),
               bg="#838a80", fg="#565b54").grid()
 
 
         li_val.clear()
-        li_val.append(btn_ra)
+        for xx in btn_ra:
+            li_val.append(xx)
+            li_val_virg.append(xx)
 def acao_virgula():
     if trava_acao() == False:
-
         if li_val[(len(li_val) - 1)] != "+" \
                 and li_val[(len(li_val) - 1)] != "-" \
                 and li_val[(len(li_val) - 1)] != "/" \
@@ -454,8 +454,6 @@ def acao_C():
     li_op.clear()
 
 def acao_voltar_espaco():
-    print(li_val)
-    print(li_val_virg)
     if trava_acao() == False:
         if li_val[(len(li_val) - 1)] != "+" \
                 and li_val[(len(li_val) - 1)] != "-" \
@@ -475,8 +473,6 @@ def historico():
     pass
 
 def acao_igual():
-    print(li_val)
-    print(li_val_virg)
     if li_op.count("1") == 0:
         if li_val[(len(li_val) - 1)] == "+" \
                 or li_val[(len(li_val) - 1)] == "-" \
@@ -508,8 +504,10 @@ def acao_igual():
         for ttsx in str_to:
             if ttsx == ".":
                 li_val.append(ttsx.replace(".",","))
+                li_val_virg.append(ttsx.replace(".",","))
             else:
                 li_val.append(ttsx)
+                li_val_virg.append(ttsx)
         li_op.append("1")
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico")
