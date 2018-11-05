@@ -1,5 +1,5 @@
 from tkinter import *
-from math import floor
+from math import floor,sqrt
 
 j_cal = Tk()
 
@@ -11,9 +11,13 @@ def lb():
 lb()["text"] = "0"
 li_val = []
 li_val.append("0")
-
+li_val_virg = []
 li_0 = []
 li_op = []
+
+def acao_li_val_virg():
+    li_val_virg.clear()
+
 def acao_inicial_del():
     pass
 
@@ -28,10 +32,7 @@ def trava_acao():
 
 
 def formatar_pontos(txt):
-
-
     def li_to_str(li):
-
 
         tx = ""
         for x in li:
@@ -173,6 +174,9 @@ def formatar_tam(txt):
     elif len(txt) > 19 and len(txt) <= 27:
         Label(lb(), text=txt, font=("Verdana", 14), anchor="e", width="27",
               height="2", bg="#838a80").place(x=3, y=34)
+    else:
+        Label(lb(), text="Limite para cálculo alcançado", font=("Verdana", 14), anchor="e", width="27",
+              height="2", bg="#838a80").place(x=3, y=34)
 
 def co_list_str_tam(li_v):
     t = ""
@@ -188,79 +192,100 @@ def list_str(li_v):
 
 def acao_0():
     if trava_acao() == False:
-        if li_val[0] == "0,":
+        if list_str(li_val) == "0,":
             li_val.clear()
         if li_val[0] != btn_0["text"]:
             li_val.append(btn_0["text"])
+            li_val_virg.append(btn_0["text"])
+            co_list_str_tam(li_val)
+        if li_val[(len(li_val) - 1)] == "+" \
+            or li_val[(len(li_val) - 1)] == "-" \
+            or li_val[(len(li_val) - 1)] == "/" \
+            or li_val[(len(li_val) - 1)] == "x" \
+            or li_val[(len(li_val) - 1)] == "," \
+            or li_val[(len(li_val) - 1)] == "%" \
+            or li_val[(len(li_val) - 1)] == "√":
+            li_val.append(btn_0["text"])
+            li_val_virg.append(btn_0["text"])
             co_list_str_tam(li_val)
 
 def acao_1():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_1["text"])
+        li_val_virg.append(btn_1["text"])
         co_list_str_tam(li_val)
 
 
 def acao_2():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_2["text"])
+        li_val_virg.append(btn_2["text"])
         co_list_str_tam(li_val)
 
 def acao_3():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_3["text"])
+        li_val_virg.append(btn_3["text"])
         co_list_str_tam(li_val)
 
 def acao_4():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_4["text"])
+        li_val_virg.append(btn_4["text"])
         co_list_str_tam(li_val)
 
 def acao_5():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_5["text"])
+        li_val_virg.append(btn_5["text"])
         co_list_str_tam(li_val)
 
 def acao_6():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_6["text"])
+        li_val_virg.append(btn_6["text"])
         co_list_str_tam(li_val)
 
 def acao_7():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_7["text"])
+        li_val_virg.append(btn_7["text"])
         co_list_str_tam(li_val)
 
 def acao_8():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_8["text"])
+        li_val_virg.append(btn_8["text"])
         co_list_str_tam(li_val)
 
 def acao_9():
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
         li_val.append(btn_9["text"])
+        li_val_virg.append(btn_9["text"])
         co_list_str_tam(li_val)
 
 def acao_mais():
+    acao_li_val_virg()
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
@@ -280,8 +305,9 @@ def acao_mais():
     li_op.clear()
 
 def acao_menos():
+    acao_li_val_virg()
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
@@ -301,8 +327,9 @@ def acao_menos():
     li_op.clear()
 
 def acao_vezes():
+    acao_li_val_virg()
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
@@ -322,8 +349,9 @@ def acao_vezes():
     li_op.clear()
 
 def acao_divisao():
+    acao_li_val_virg()
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
@@ -343,13 +371,19 @@ def acao_divisao():
     li_op.clear()
 
 def acao_p_cento():
+    acao_li_val_virg()
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
             li_val.append("0")
             li_val.append("/")
+
+        if btn_p_cento["text"] == "%":
+            if li_val.count("%") == 0:
+                li_val.append(btn_p_cento["text"])
+
 
         if li_val[(len(li_val) - 1)] != "+" \
                 and li_val[(len(li_val) - 1)] != "-" \
@@ -362,13 +396,24 @@ def acao_p_cento():
             co_list_str_tam(li_val)
 
 def acao_raiz():
+    acao_li_val_virg()
     if trava_acao() == False:
-        if li_val[0] == "0":
+        if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
             li_val.append("0")
-            li_val.append("/")
+            #li_val.append("/")
+
+        if btn_raiz["text"] == "√":
+
+            btn_ra = list_str(li_val)
+            btn_ra = btn_ra.replace(",", ".")
+            btn_ra = eval(btn_ra)
+            btn_ra = sqrt(btn_ra)
+            btn_ra = str(btn_ra)
+            if btn_ra[(len(btn_ra) - 1)] == "0" and btn_ra[(len(btn_ra) - 2)] == ".":
+                btn_ra = btn_ra.replace(".0","")
 
         if li_val[(len(li_val) - 1)] != "+" \
                 and li_val[(len(li_val) - 1)] != "-" \
@@ -377,26 +422,31 @@ def acao_raiz():
                 and li_val[(len(li_val) - 1)] != "," \
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
-            li_val.append(btn_raiz["text"])
-            co_list_str_tam(li_val)
+            btn_ra = btn_ra.replace(".",",")
+            co_list_str_tam(btn_ra)
 
+        Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="√({})= ".format(list_str(li_val)),
+              bg="#838a80", fg="#565b54").grid()
+
+
+        li_val.clear()
+        li_val.append(btn_ra)
 def acao_virgula():
     if trava_acao() == False:
-        if li_val[0] == "0" or li_val[0] == "0,":
-            li_val.clear()
-            li_val.append("0{}".format(btn_virgula["text"]))
+
+        if li_val[(len(li_val) - 1)] != "+" \
+                and li_val[(len(li_val) - 1)] != "-" \
+                and li_val[(len(li_val) - 1)] != "/" \
+                and li_val[(len(li_val) - 1)] != "x" \
+                and li_val[(len(li_val) - 1)] != "," \
+                and li_val[(len(li_val) - 1)] != "%" \
+                and li_val[(len(li_val) - 1)] != "√" \
+                and li_val_virg.count(",") < 1:
+            li_val.append("{}".format(","))
+            li_val_virg.append("{}".format(","))
             co_list_str_tam(li_val)
-        else:
-            if li_val[(len(li_val) - 1)] != "+" \
-                    and li_val[(len(li_val) - 1)] != "-" \
-                    and li_val[(len(li_val) - 1)] != "/" \
-                    and li_val[(len(li_val) - 1)] != "x" \
-                    and li_val[(len(li_val) - 1)] != "," \
-                    and li_val[(len(li_val) - 1)] != "%" \
-                    and li_val[(len(li_val) - 1)] != "√":
-                li_val.append("{}".format(","))
-                co_list_str_tam(li_val)
 def acao_C():
+    acao_li_val_virg()
     li_val.clear()
     li_0.clear()
     lb()["text"] = "0"
@@ -404,29 +454,56 @@ def acao_C():
     li_op.clear()
 
 def acao_voltar_espaco():
+    print(li_val)
+    print(li_val_virg)
     if trava_acao() == False:
-        if len(li_val) >= 1:
-            li_val.pop()
-        if len(li_val) == 0:
-            li_val.append("0")
-        co_list_str_tam(li_val)
-
+        if li_val[(len(li_val) - 1)] != "+" \
+                and li_val[(len(li_val) - 1)] != "-" \
+                and li_val[(len(li_val) - 1)] != "/" \
+                and li_val[(len(li_val) - 1)] != "x" \
+                and li_val[(len(li_val) - 1)] != "%" \
+                and li_val[(len(li_val) - 1)] != "√":
+            if len(li_val) >= 1:
+                li_val.pop()
+            if len(li_val_virg) >= 1:
+                li_val_virg.pop()
+            if len(li_val) == 0:
+                li_val.append("0")
+                li_val_virg.append("0")
+            co_list_str_tam(li_val)
 def historico():
     pass
 
 def acao_igual():
+    print(li_val)
+    print(li_val_virg)
     if li_op.count("1") == 0:
+        if li_val[(len(li_val) - 1)] == "+" \
+                or li_val[(len(li_val) - 1)] == "-" \
+                or li_val[(len(li_val) - 1)] == "x":
+
+            li_val.append("{}".format("0"))
+            li_val_virg.append("{}".format("0"))
+
+        elif li_val[(len(li_val) - 1)] == "/":
+
+            li_val.append("{}".format("1"))
+            li_val_virg.append("{}".format("1"))
+
         co_list_str_tam(formatar_pontos(li_val))
 
-        Label(lb(), font=("Verdana", 14), anchor="ne", width="27", height="1", text="{}= ".format(list_str(li_val)),
+        Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
               bg="#838a80", fg="#565b54").grid()
 
         list_str_li_v = list_str(li_val).replace("x","*")
         ccc = list_str_li_v.replace(",",".")
-        list_str_t = eval(ccc)
+        cccc = ccc.replace(".0","")
+        list_str_t = eval(cccc)
         li_val.clear()
         str_to = str(list_str_t)
 
+        if str_to.count(".0"):
+            str_to.replace(".0", "")
 
         for ttsx in str_to:
             if ttsx == ".":
@@ -543,7 +620,6 @@ btn_divisao.place(x=259, y=170)
 j_cal.geometry("350x500+400+200")
 j_cal["bg"] = "#eaf1e7"
 j_cal.title("Clube do alfabeto - Calculadora")
-j_cal.iconbitmap("imgs/iconcalc.ico")
 j_cal.maxsize(width=350, height=500)
 j_cal.minsize(width=350, height=500)
 j_cal.mainloop()
