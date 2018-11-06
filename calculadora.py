@@ -30,7 +30,6 @@ def trava_acao():
     else:
         return False
 
-
 def formatar_pontos(txt):
     def li_to_str(li):
 
@@ -194,17 +193,21 @@ def acao_0():
     if trava_acao() == False:
         if list_str(li_val) == "0,":
             li_val.clear()
-        if li_val[0] != btn_0["text"]:
+        if li_val[0] == "0" and li_val[1] == ",":
+            li_val.append(btn_0["text"])
+            li_val_virg.append(btn_0["text"])
+            co_list_str_tam(li_val)
+        elif li_val[0] != "0":
             li_val.append(btn_0["text"])
             li_val_virg.append(btn_0["text"])
             co_list_str_tam(li_val)
         if li_val[(len(li_val) - 1)] == "+" \
-            or li_val[(len(li_val) - 1)] == "-" \
-            or li_val[(len(li_val) - 1)] == "/" \
-            or li_val[(len(li_val) - 1)] == "x" \
-            or li_val[(len(li_val) - 1)] == "," \
-            or li_val[(len(li_val) - 1)] == "%" \
-            or li_val[(len(li_val) - 1)] == "√":
+                and li_val[(len(li_val) - 1)] == "-" \
+                and li_val[(len(li_val) - 1)] == "/" \
+                and li_val[(len(li_val) - 1)] == "x" \
+                and li_val[(len(li_val) - 1)] == "," \
+                and li_val[(len(li_val) - 1)] == "%" \
+                and li_val[(len(li_val) - 1)] == "√":
             li_val.append(btn_0["text"])
             li_val_virg.append(btn_0["text"])
             co_list_str_tam(li_val)
@@ -216,7 +219,6 @@ def acao_1():
         li_val.append(btn_1["text"])
         li_val_virg.append(btn_1["text"])
         co_list_str_tam(li_val)
-
 
 def acao_2():
     if trava_acao() == False:
@@ -373,27 +375,58 @@ def acao_divisao():
 def acao_p_cento():
     acao_li_val_virg()
     if trava_acao() == False:
+        lis_str = list_str(li_val)
+        btn_ra_li = lis_str
+
+
         if list_str(li_val) == "0":
             li_val.clear()
 
         if len(li_val) == 0:
             li_val.append("0")
-            li_val.append("/")
+            #li_val.append("/")
 
         if btn_p_cento["text"] == "%":
             if li_val.count("%") == 0:
-                li_val.append(btn_p_cento["text"])
+                btn_ra = list_str(li_val)
+                btn_ra = btn_ra.replace(",", ".")
+                if li_val.count("x") == 1:
+                    btn_ra = btn_ra.split("x")
+                    btn_ra_0 = eval(btn_ra[0])
+                    btn_ra_1 = eval(btn_ra[1])
+                    btn_ra = btn_ra_1/100*btn_ra_0*btn_ra_0
+                if li_val.count("/") == 1:
+                    btn_ra = btn_ra.split("/")
+                    btn_ra_0 = eval(btn_ra[0])
+                    btn_ra_1 = eval(btn_ra[1])
+                    btn_ra = btn_ra_1/100*btn_ra_0/btn_ra_0
+                if li_val.count("+") == 1:
+                    btn_ra = btn_ra.split("+")
+                    btn_ra_0 = eval(btn_ra[0])
+                    btn_ra_1 = eval(btn_ra[1])
+                    btn_ra = btn_ra_1/100*btn_ra_0+btn_ra_0
+                if li_val.count("-") == 1:
+                    btn_ra = btn_ra.split("-")
+                    btn_ra_0 = eval(btn_ra[0])
+                    btn_ra_1 = eval(btn_ra[1])
+                    btn_ra = btn_ra_0-(btn_ra_1/100*btn_ra_0)
 
 
-        if li_val[(len(li_val) - 1)] != "+" \
-                and li_val[(len(li_val) - 1)] != "-" \
-                and li_val[(len(li_val) - 1)] != "/" \
-                and li_val[(len(li_val) - 1)] != "x" \
-                and li_val[(len(li_val) - 1)] != "," \
-                and li_val[(len(li_val) - 1)] != "%" \
-                and li_val[(len(li_val) - 1)] != "√":
-            li_val.append(btn_p_cento["text"])
-            co_list_str_tam(li_val)
+                btn_ra = str(btn_ra)
+                btn_ra = btn_ra.replace(".",",")
+                if btn_ra[::-1][0] == "0" and btn_ra[::-1][1] == ",":
+                    btn_ra = btn_ra.replace(",0","")
+                else:
+                    btn_ra = btn_ra
+
+            li_val.clear()
+            for xx in btn_ra:
+                li_val.append(xx)
+                li_val_virg.append(xx)
+
+                co_list_str_tam(formatar_pontos(li_val))
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}%= ".format(list_str(list_str(btn_ra_li))),
+                  bg="#838a80", fg="#565b54").grid()
 
 def acao_raiz():
     acao_li_val_virg()
@@ -432,6 +465,7 @@ def acao_raiz():
         for xx in btn_ra:
             li_val.append(xx)
             li_val_virg.append(xx)
+
 def acao_virgula():
     if trava_acao() == False:
         if li_val[(len(li_val) - 1)] != "+" \
@@ -445,6 +479,7 @@ def acao_virgula():
             li_val.append("{}".format(","))
             li_val_virg.append("{}".format(","))
             co_list_str_tam(li_val)
+
 def acao_C():
     acao_li_val_virg()
     li_val.clear()
@@ -469,8 +504,19 @@ def acao_voltar_espaco():
                 li_val.append("0")
                 li_val_virg.append("0")
             co_list_str_tam(li_val)
+
 def historico():
-    pass
+    lab_hist_in = Label(j_cal, font=("Verdana", 36), anchor="e", width="11", height="8", text="", bg="#838a80")
+    lab_hist_in.forget
+    lab_hist_in.place(x=7, y=33)
+
+    def historico_in():
+        lab_hist_in.destroy()
+
+    btn_hist_in = Button(lab_hist_in, font=("Verdana", 10), width="2", text="X", command=historico_in)
+    btn_hist_in["bg"] = "#dbe8d4"
+    btn_hist_in["bd"] = 1
+    btn_hist_in.place(x=306, y=1)
 
 def acao_igual():
     if li_op.count("1") == 0:
@@ -510,7 +556,7 @@ def acao_igual():
                 li_val_virg.append(ttsx)
         li_op.append("1")
 
-btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico")
+btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico", command=historico)
 btn_hist["bg"] = "#dbe8d4"
 btn_hist["bd"] = 1
 btn_hist.place(x=10, y=2)
