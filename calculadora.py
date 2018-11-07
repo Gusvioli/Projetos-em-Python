@@ -429,7 +429,8 @@ def acao_p_cento():
                 co_list_str_tam(formatar_pontos(li_val))
             Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}%= ".format(list_str(list_str(btn_ra_li))),
                   bg="#838a80", fg="#565b54").grid()
-
+            
+        historico_dic.append(("{}%={}".format(list_str(btn_ra_li), btn_ra)))
 def acao_raiz():
     acao_li_val_virg()
     if trava_acao() == False:
@@ -462,6 +463,7 @@ def acao_raiz():
         Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="√({})= ".format(list_str(li_val)),
               bg="#838a80", fg="#565b54").grid()
 
+        historico_dic.append(("√({})={}".format(list_str(li_val), btn_ra)))
 
         li_val.clear()
         for xx in btn_ra:
@@ -506,22 +508,6 @@ def acao_voltar_espaco():
                 li_val.append("0")
                 li_val_virg.append("0")
             co_list_str_tam(li_val)
-
-def historico():
-
-    lab_hist_in = Label(j_cal, font=("Verdana", 16), anchor="e", width="26", height="18", text="", bg="#838a80")
-    lab_hist_in.forget
-    lab_hist_in.place(x=3, y=33)
-
-    lab_hist_in["text"] = historico_dic
-    def historico_in():
-        lab_hist_in.destroy()
-
-    btn_hist_in = Button(lab_hist_in, font=("Verdana", 10), width="2", text="X", command=historico_in)
-    btn_hist_in["bg"] = "#dbe8d4"
-    btn_hist_in["bd"] = 1
-    btn_hist_in.place(x=316, y=1)
-
 def acao_igual():
 
     if li_op.count("1") == 0:
@@ -563,6 +549,42 @@ def acao_igual():
                 li_val.append(ttsx)
                 li_val_virg.append(ttsx)
         li_op.append("1")
+        print(li_val)
+def historico():
+
+    if len(historico_dic) > 0:
+        lab_hist_in = Label(j_cal, font=("Verdana", 16), anchor="nw", width="28", height="20", text="", bg="#838a80")
+        lab_hist_in.grid()
+    elif len(historico_dic) == 0:
+        lab_hist_in = Label(j_cal, font=("Verdana", 16), anchor="nw", width="28", height="20", text="Sem histórico", bg="#838a80")
+        lab_hist_in.grid()
+
+
+    def historico_in():
+        lab_hist_in.destroy()
+
+    btn_hist_in = Button(lab_hist_in, font=("Verdana", 10), width="2", text="X", command=historico_in)
+    btn_hist_in["bg"] = "#838a80"
+    btn_hist_in["bd"] = 0
+    btn_hist_in.tk_setPalette("#8e928c")
+    btn_hist_in.tk_focusFollowsMouse()
+    btn_hist_in.place(x=318, y=1)
+    yx = 40
+    historico_dics = historico_dic[::-1]
+    for h_dic in historico_dics[0:10]:
+        t = ""
+        for xx in h_dic:
+            t = t +xx
+        h_dics = t
+        h_dics = h_dics.split("=")
+        h_dics = h_dics[0]+"=\n"+h_dics[1]
+        btn_hist_in_l = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w", text=h_dics)
+        btn_hist_in_l["bg"] = "#8e928c"
+        btn_hist_in_l["bd"] = 0
+        btn_hist_in_l.place(x=5, y=yx)
+        yx += 45
+
+
 
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico", command=historico)
