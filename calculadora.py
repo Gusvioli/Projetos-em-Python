@@ -15,6 +15,8 @@ li_val_virg = []
 li_0 = []
 li_op = []
 
+historico_dic = []
+
 def acao_li_val_virg():
     li_val_virg.clear()
 
@@ -506,19 +508,22 @@ def acao_voltar_espaco():
             co_list_str_tam(li_val)
 
 def historico():
-    lab_hist_in = Label(j_cal, font=("Verdana", 36), anchor="e", width="11", height="8", text="", bg="#838a80")
-    lab_hist_in.forget
-    lab_hist_in.place(x=7, y=33)
 
+    lab_hist_in = Label(j_cal, font=("Verdana", 16), anchor="e", width="26", height="18", text="", bg="#838a80")
+    lab_hist_in.forget
+    lab_hist_in.place(x=3, y=33)
+
+    lab_hist_in["text"] = historico_dic
     def historico_in():
         lab_hist_in.destroy()
 
     btn_hist_in = Button(lab_hist_in, font=("Verdana", 10), width="2", text="X", command=historico_in)
     btn_hist_in["bg"] = "#dbe8d4"
     btn_hist_in["bd"] = 1
-    btn_hist_in.place(x=306, y=1)
+    btn_hist_in.place(x=316, y=1)
 
 def acao_igual():
+
     if li_op.count("1") == 0:
         if li_val[(len(li_val) - 1)] == "+" \
                 or li_val[(len(li_val) - 1)] == "-" \
@@ -534,6 +539,7 @@ def acao_igual():
 
         co_list_str_tam(formatar_pontos(li_val))
 
+
         Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
               bg="#838a80", fg="#565b54").grid()
 
@@ -543,6 +549,8 @@ def acao_igual():
         list_str_t = eval(cccc)
         li_val.clear()
         str_to = str(list_str_t)
+
+        historico_dic.append(("{}=".format(cccc),str_to))
 
         if str_to.count(".0"):
             str_to.replace(".0", "")
@@ -555,6 +563,7 @@ def acao_igual():
                 li_val.append(ttsx)
                 li_val_virg.append(ttsx)
         li_op.append("1")
+
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico", command=historico)
 btn_hist["bg"] = "#dbe8d4"
