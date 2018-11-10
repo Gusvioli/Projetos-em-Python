@@ -429,7 +429,7 @@ def acao_p_cento():
                 co_list_str_tam(formatar_pontos(li_val))
             Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}%= ".format(list_str(list_str(btn_ra_li))),
                   bg="#838a80", fg="#565b54").grid()
-            
+
         historico_dic.append(("{}%={}".format(list_str(btn_ra_li), btn_ra)))
 def acao_raiz():
     acao_li_val_virg()
@@ -462,14 +462,13 @@ def acao_raiz():
             co_list_str_tam(btn_ra)
         Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="√({})= ".format(list_str(li_val)),
               bg="#838a80", fg="#565b54").grid()
-
-        historico_dic.append(("√({})={}".format(list_str(li_val), btn_ra)))
+        historico_dic.append(("√({})=".format(list_str(li_val)), btn_ra))
 
         li_val.clear()
         for xx in btn_ra:
             li_val.append(xx)
             li_val_virg.append(xx)
-
+        print(historico_dic)
 def acao_virgula():
     if trava_acao() == False:
         if li_val[(len(li_val) - 1)] != "+" \
@@ -525,7 +524,6 @@ def acao_igual():
 
         co_list_str_tam(formatar_pontos(li_val))
 
-
         Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
               bg="#838a80", fg="#565b54").grid()
 
@@ -540,7 +538,6 @@ def acao_igual():
 
         if str_to.count(".0"):
             str_to.replace(".0", "")
-
         for ttsx in str_to:
             if ttsx == ".":
                 li_val.append(ttsx.replace(".",","))
@@ -549,7 +546,6 @@ def acao_igual():
                 li_val.append(ttsx)
                 li_val_virg.append(ttsx)
         li_op.append("1")
-        print(li_val)
 def historico():
 
     if len(historico_dic) > 0:
@@ -559,9 +555,318 @@ def historico():
         lab_hist_in = Label(j_cal, font=("Verdana", 16), anchor="nw", width="28", height="20", text="Sem histórico", bg="#838a80")
         lab_hist_in.grid()
 
+    def historico_in_li_0():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[0][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*","x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_1():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[1][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_2():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[2][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_3():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[3][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_4():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[4][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_5():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[5][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_6():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[6][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_7():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[7][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_8():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[8][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_li_9():
+
+        lab_hist_in.destroy()
+        li_val.clear()
+        ccccs = historico_dic[9][0]
+        tss = ""
+        for xx in ccccs:
+            if xx != "=":
+                tss = tss + xx
+
+        for ysy in tss:
+            li_val.append("{}".format(ysy))
+
+        co_list_str_tam(formatar_pontos(li_val))
+
+        if li_val.count("*"):
+            wt = ""
+            for dd in li_val:
+                wt = wt + dd
+            wt = wt.replace("*", "x")
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(wt)),
+                  bg="#838a80", fg="#565b54").grid()
+        else:
+
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
+                  text="{}= ".format(list_str(li_val)),
+                  bg="#838a80", fg="#565b54").grid()
+
+    def historico_in_limpar():
+        historico_dic.clear()
+        lab_hist_in.destroy()
 
     def historico_in():
         lab_hist_in.destroy()
+
+    if len(historico_dic) != 0:
+        btn_hist_in_lim = Button(lab_hist_in, font=("Verdana", 10), width="8", text="Limpar", command=historico_in_limpar)
+        btn_hist_in_lim["bg"] = "#838a80"
+        btn_hist_in_lim["bd"] = 0
+        btn_hist_in_lim.tk_setPalette("#8e928c")
+        btn_hist_in_lim.tk_focusFollowsMouse()
+        btn_hist_in_lim.place(x=1, y=1)
 
     btn_hist_in = Button(lab_hist_in, font=("Verdana", 10), width="2", text="X", command=historico_in)
     btn_hist_in["bg"] = "#838a80"
@@ -569,132 +874,228 @@ def historico():
     btn_hist_in.tk_setPalette("#8e928c")
     btn_hist_in.tk_focusFollowsMouse()
     btn_hist_in.place(x=318, y=1)
-    yx = 40
-    historico_dics = historico_dic[::-1]
-    for h_dic in historico_dics[0:10]:
-        t = ""
-        for xx in h_dic:
-            t = t +xx
-        h_dics = t
-        h_dics = h_dics.split("=")
-        h_dics = h_dics[0]+"=\n"+h_dics[1]
-        btn_hist_in_l = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w", text=h_dics)
-        btn_hist_in_l["bg"] = "#8e928c"
-        btn_hist_in_l["bd"] = 0
-        btn_hist_in_l.place(x=5, y=yx)
-        yx += 45
+
+    historico_dics = historico_dic
 
 
+    try:
+        his_dics_0 = historico_dics[0][0]+historico_dics[0][1]
+        h_dics_0 = his_dics_0.split("=")
+        h_dics_0 = h_dics_0[0]+"=\n"+h_dics_0[1]
+        btn_hist_in_l_0 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w", text=h_dics_0, command=historico_in_li_0)
+        btn_hist_in_l_0["bg"] = "#8e928c"
+        btn_hist_in_l_0["bd"] = 0
+        btn_hist_in_l_0.place(x=5, y=45)
+    except:
+        s = ""
+    try:
+        his_dics_1 = historico_dics[1][0]+historico_dics[1][1]
+        h_dics_1 = his_dics_1.split("=")
+        h_dics_1 = h_dics_1[0]+"=\n"+h_dics_1[1]
+        btn_hist_in_l_1 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w", text=h_dics_1, command=historico_in_li_1)
+        btn_hist_in_l_1["bg"] = "#8e928c"
+        btn_hist_in_l_1["bd"] = 0
+        btn_hist_in_l_1.place(x=5, y=90)
+    except:
+        s = ""
 
+    try:
+        his_dics_2 = historico_dics[2][0]+historico_dics[2][1]
+        h_dics_2 = his_dics_2.split("=")
+        h_dics_2 = h_dics_2[0]+"=\n"+h_dics_2[1]
+        btn_hist_in_l_2 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w", text=h_dics_2, command=historico_in_li_2)
+        btn_hist_in_l_2["bg"] = "#8e928c"
+        btn_hist_in_l_2["bd"] = 0
+        btn_hist_in_l_2.place(x=5, y=135)
+    except:
+        s = ""
+    try:
+        his_dics_3 = historico_dics[3][0] + historico_dics[3][1]
+        h_dics_3 = his_dics_3.split("=")
+        h_dics_3 = h_dics_3[0] + "=\n" + h_dics_3[1]
+        btn_hist_in_l_3 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_3, command=historico_in_li_3)
+        btn_hist_in_l_3["bg"] = "#8e928c"
+        btn_hist_in_l_3["bd"] = 0
+        btn_hist_in_l_3.place(x=5, y=180)
+    except:
+        s = ""
+    try:
+        his_dics_4 = historico_dics[4][0] + historico_dics[4][1]
+        h_dics_4 = his_dics_4.split("=")
+        h_dics_4 = h_dics_4[0] + "=\n" + h_dics_4[1]
+        btn_hist_in_l_4 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_4, command=historico_in_li_4)
+        btn_hist_in_l_4["bg"] = "#8e928c"
+        btn_hist_in_l_4["bd"] = 0
+        btn_hist_in_l_4.place(x=5, y=225)
+    except:
+        s = ""
+    try:
+        his_dics_5 = historico_dics[5][0] + historico_dics[5][1]
+        h_dics_5 = his_dics_5.split("=")
+        h_dics_5 = h_dics_5[0] + "=\n" + h_dics_5[1]
+        btn_hist_in_l_5 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_5, command=historico_in_li_5)
+        btn_hist_in_l_5["bg"] = "#8e928c"
+        btn_hist_in_l_5["bd"] = 0
+        btn_hist_in_l_5.place(x=5, y=270)
+    except:
+        s = ""
+    try:
+        his_dics_6 = historico_dics[6][0] + historico_dics[6][1]
+        h_dics_6 = his_dics_6.split("=")
+        h_dics_6 = h_dics_6[0] + "=\n" + h_dics_6[1]
+        btn_hist_in_l_6 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_6, command=historico_in_li_6)
+        btn_hist_in_l_6["bg"] = "#8e928c"
+        btn_hist_in_l_6["bd"] = 0
+        btn_hist_in_l_6.place(x=5, y=315)
+    except:
+        s = ""
+    try:
+        his_dics_7 = historico_dics[7][0] + historico_dics[7][1]
+        h_dics_7 = his_dics_7.split("=")
+        h_dics_7 = h_dics_7[0] + "=\n" + h_dics_7[1]
+        btn_hist_in_l_7 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_7, command=historico_in_li_7)
+        btn_hist_in_l_7["bg"] = "#8e928c"
+        btn_hist_in_l_7["bd"] = 0
+        btn_hist_in_l_7.place(x=5, y=360)
+    except:
+        s = ""
+    try:
+        his_dics_8 = historico_dics[8][0] + historico_dics[8][1]
+        h_dics_8 = his_dics_8.split("=")
+        h_dics_8 = h_dics_8[0] + "=\n" + h_dics_8[1]
+        btn_hist_in_l_8 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_8, command=historico_in_li_8)
+        btn_hist_in_l_8["bg"] = "#8e928c"
+        btn_hist_in_l_8["bd"] = 0
+        btn_hist_in_l_8.place(x=5, y=405)
+    except:
+        s = ""
+    try:
+        his_dics_9 = historico_dics[9][0] + historico_dics[9][1]
+        h_dics_9 = his_dics_9.split("=")
+        h_dics_9 = h_dics_9[0] + "=\n" + h_dics_9[1]
+        btn_hist_in_l_9 = Button(lab_hist_in, font=("Verdana", 10), width="41", height="2", anchor="w",
+                                 text=h_dics_9, command=historico_in_li_9)
+        btn_hist_in_l_9["bg"] = "#8e928c"
+        btn_hist_in_l_9["bd"] = 0
+        btn_hist_in_l_9.place(x=5, y=450)
+    except:
+        s = ""
 
 btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico", command=historico)
 btn_hist["bg"] = "#dbe8d4"
-btn_hist["bd"] = 1
+btn_hist["bd"] = 0
 btn_hist.place(x=10, y=2)
 
 btn_raiz = Button(font=("Verdana", 22), width="4", text="√", command=acao_raiz)
 btn_raiz["bg"] = "#dbe8d4"
-btn_raiz["bd"] = 1
+btn_raiz["bd"] = 0
 btn_raiz.place(x=10, y=430)
 
 btn_0 = Button(font=("Verdana", 22), width="4", text="0", command=acao_0)
 btn_0["bg"] = "#afd19c"
-btn_0["bd"] = 1
+btn_0["bd"] = 0
 btn_0.place(x=93, y=430)
 
 btn_virgula = Button(font=("Verdana", 22), width="4", text=",", command=acao_virgula)
 btn_virgula["bg"] = "#dbe8d4"
-btn_virgula["bd"] = 1
+btn_virgula["bd"] = 0
 btn_virgula.place(x=176, y=430)
 
 btn_igual = Button(font=("Verdana", 22), width="4", text="=", command=acao_igual)
 btn_igual["bg"] = "#dbe8d4"
-btn_igual["bd"] = 1
+btn_igual["bd"] = 0
 btn_igual.place(x=259, y=430)
 
 btn_1 = Button(font=("Verdana", 22), width="4", text="1", command=acao_1)
 btn_1["bg"] = "#afd19c"
-btn_1["bd"] = 1
+btn_1["bd"] = 0
 btn_1.place(x=10, y=365)
 
 btn_2 = Button(font=("Verdana", 22), width="4", text="2", command=acao_2)
 btn_2["bg"] = "#afd19c"
-btn_2["bd"] = 1
+btn_2["bd"] = 0
 btn_2.place(x=93, y=365)
 
 btn_3 = Button(font=("Verdana", 22), width="4", text="3", command=acao_3)
 btn_3["bg"] = "#afd19c"
-btn_3["bd"] = 1
+btn_3["bd"] = 0
 btn_3.place(x=176, y=365)
 
 btn_mais = Button(font=("Verdana", 22), width="4", text="+", command=acao_mais)
 btn_mais["bg"] = "#dbe8d4"
-btn_mais["bd"] = 1
+btn_mais["bd"] = 0
 btn_mais.place(x=259, y=365)
 
 btn_4 = Button(font=("Verdana", 22), width="4", text="4", command=acao_4)
 btn_4["bg"] = "#afd19c"
-btn_4["bd"] = 1
+btn_4["bd"] = 0
 btn_4.place(x=10, y=300)
 
 btn_5 = Button(font=("Verdana", 22), width="4", text="5", command=acao_5)
 btn_5["bg"] = "#afd19c"
-btn_5["bd"] = 1
+btn_5["bd"] = 0
 btn_5.place(x=93, y=300)
 
 btn_6 = Button(font=("Verdana", 22), width="4", text="6", command=acao_6)
 btn_6["bg"] = "#afd19c"
-btn_6["bd"] = 1
+btn_6["bd"] = 0
 btn_6.place(x=176, y=300)
 
 btn_menos = Button(font=("Verdana", 22), width="4", text="-", command=acao_menos)
 btn_menos["bg"] = "#dbe8d4"
-btn_menos["bd"] = 1
+btn_menos["bd"] = 0
 btn_menos.place(x=259, y=300)
 
 btn_7 = Button(font=("Verdana", 22), width="4", text="7", command=acao_7)
 btn_7["bg"] = "#afd19c"
-btn_7["bd"] = 1
+btn_7["bd"] = 0
 btn_7.place(x=10, y=235)
 
 btn_8 = Button(font=("Verdana", 22), width="4", text="8", command=acao_8)
 btn_8["bg"] = "#afd19c"
-btn_8["bd"] = 1
+btn_8["bd"] = 0
 btn_8.place(x=93, y=235)
 
 btn_9 = Button(font=("Verdana", 22), width="4", text="9", command=acao_9)
 btn_9["bg"] = "#afd19c"
-btn_9["bd"] = 1
+btn_9["bd"] = 0
 btn_9.place(x=176, y=235)
 
 btn_vezes = Button(font=("Verdana", 22), width="4", text="x", command=acao_vezes)
 btn_vezes["bg"] = "#dbe8d4"
-btn_vezes["bd"] = 1
+btn_vezes["bd"] = 0
 btn_vezes.place(x=259, y=235)
 
 btn_p_cento = Button(font=("Verdana", 22), width="4", text="%", command=acao_p_cento)
 btn_p_cento["bg"] = "#dbe8d4"
-btn_p_cento["bd"] = 1
+btn_p_cento["bd"] = 0
 btn_p_cento.place(x=10, y=170)
 
 btn_C = Button(font=("Verdana", 22), width="4", text="C", command=acao_C)
 btn_C["bg"] = "#dbe8d4"
-btn_C["bd"] = 1
+btn_C["bd"] = 0
 btn_C.place(x=93, y=170)
 
 btn_voltar_espaco = Button(font=("Verdana", 22), width="4", text="←", command=acao_voltar_espaco)
 btn_voltar_espaco["bg"] = "#dbe8d4"
-btn_voltar_espaco["bd"] = 1
+btn_voltar_espaco["bd"] = 0
 btn_voltar_espaco.place(x=176, y=170)
 
 btn_divisao = Button(font=("Verdana", 22), width="4", text="/", command=acao_divisao)
 btn_divisao["bg"] = "#dbe8d4"
-btn_divisao["bd"] = 1
+btn_divisao["bd"] = 0
 btn_divisao.place(x=259, y=170)
 
 j_cal.geometry("350x500+400+200")
 j_cal["bg"] = "#eaf1e7"
+j_cal.tk_focusFollowsMouse()
 j_cal.title("Clube do alfabeto - Calculadora")
-j_cal.maxsize(width=350, height=500)
+#j_cal.maxsize(width=350, height=500)
 j_cal.minsize(width=350, height=500)
 j_cal.mainloop()
