@@ -10,6 +10,7 @@ def lb():
 
 lb()["text"] = "0"
 li_val = []
+li_val_h = []
 li_val.append("0")
 li_val_virg = []
 li_0 = []
@@ -180,6 +181,7 @@ def formatar_tam(txt):
               height="2", bg="#838a80").place(x=3, y=34)
 
 def co_list_str_tam(li_v):
+
     t = ""
     for i in li_v:
         t = t + i
@@ -304,6 +306,35 @@ def acao_mais():
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_mais["text"])
+
+            if li_val.count("√") == 1:
+                tsss = ""
+                for xxs in li_val:
+                    if xxs != "=":
+                        tsss = tsss + xxs
+                tesxs = tsss.replace("√", "")
+                tesxs = tesxs.replace("(", "")
+                tesxs = tesxs.replace(")", "")
+                tesxs = tesxs.replace("+", "")
+                if li_val.count(",") == 1:
+                    tesxs = tesxs.replace(",", ".")
+
+                tesxs = eval(tesxs)
+                tesxs = sqrt(tesxs)
+
+                if li_val.count(".") == 1:
+                    tesxs = tesxs.replace(".", ",")
+
+                tesxs = str(tesxs)
+                li_val.clear()
+                for sx in tesxs:
+                    li_val.append("{}".format(sx))
+
+                print(li_val)
+                li_val.append("+")
+                co_list_str_tam(li_val)
+            else:
+                co_list_str_tam(li_val)
             li_op.append(btn_mais["text"])
         co_list_str_tam(li_val)
     li_op.clear()
@@ -326,7 +357,34 @@ def acao_menos():
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_menos["text"])
-            co_list_str_tam(li_val)
+
+            if li_val.count("√") == 1:
+                tsss = ""
+                for xxs in li_val:
+                    if xxs != "=":
+                        tsss = tsss + xxs
+                tesxs = tsss.replace("√", "")
+                tesxs = tesxs.replace("(", "")
+                tesxs = tesxs.replace(")", "")
+                tesxs = tesxs.replace("-", "")
+                if li_val.count(",") == 1:
+                    tesxs = tesxs.replace(",", ".")
+
+                tesxs = eval(tesxs)
+                tesxs = sqrt(tesxs)
+
+                if li_val.count(".") == 1:
+                    tesxs = tesxs.replace(".", ",")
+
+                tesxs = str(tesxs)
+                li_val.clear()
+                for sx in tesxs:
+                    li_val.append("{}".format(sx))
+
+                li_val.append("-")
+                co_list_str_tam(li_val)
+            else:
+                co_list_str_tam(li_val)
             li_op.append(btn_menos["text"])
     li_op.clear()
 
@@ -348,7 +406,34 @@ def acao_vezes():
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_vezes["text"])
-            co_list_str_tam(li_val)
+
+            if li_val.count("√") == 1:
+                tsss = ""
+                for xxs in li_val:
+                    if xxs != "=":
+                        tsss = tsss + xxs
+                tesxs = tsss.replace("√", "")
+                tesxs = tesxs.replace("(", "")
+                tesxs = tesxs.replace(")", "")
+                tesxs = tesxs.replace("x", "")
+                if li_val.count(",") == 1:
+                    tesxs = tesxs.replace(",", ".")
+
+                tesxs = eval(tesxs)
+                tesxs = sqrt(tesxs)
+
+                if li_val.count(".") == 1:
+                    tesxs = tesxs.replace(".", ",")
+
+                tesxs = str(tesxs)
+                li_val.clear()
+                for sx in tesxs:
+                    li_val.append("{}".format(sx))
+
+                li_val.append("x")
+                co_list_str_tam(li_val)
+            else:
+                co_list_str_tam(li_val)
             li_op.append(btn_vezes["text"])
     li_op.clear()
 
@@ -370,7 +455,35 @@ def acao_divisao():
                 and li_val[(len(li_val) - 1)] != "%" \
                 and li_val[(len(li_val) - 1)] != "√":
             li_val.append(btn_divisao["text"])
-            co_list_str_tam(li_val)
+
+            if li_val.count("√") == 1:
+                tsss = ""
+                for xxs in li_val:
+                    if xxs != "=":
+                        tsss = tsss + xxs
+                tesxs = tsss.replace("√", "")
+                tesxs = tesxs.replace("(", "")
+                tesxs = tesxs.replace(")", "")
+                tesxs = tesxs.replace("/", "")
+                if li_val.count(",") == 1:
+                    tesxs = tesxs.replace(",", ".")
+
+                tesxs = eval(tesxs)
+                tesxs = sqrt(tesxs)
+
+                if li_val.count(".") == 1:
+                    tesxs = tesxs.replace(".", ",")
+
+                tesxs = str(tesxs)
+                li_val.clear()
+                for sx in tesxs:
+                    li_val.append("{}".format(sx))
+
+                li_val.append("/")
+                co_list_str_tam(li_val)
+            else:
+                co_list_str_tam(li_val)
+
             li_op.append(btn_divisao["text"])
     li_op.clear()
 
@@ -468,7 +581,7 @@ def acao_raiz():
         for xx in btn_ra:
             li_val.append(xx)
             li_val_virg.append(xx)
-        print(historico_dic)
+
 def acao_virgula():
     if trava_acao() == False:
         if li_val[(len(li_val) - 1)] != "+" \
@@ -568,20 +681,66 @@ def historico():
         for ysy in tss:
             li_val.append("{}".format(ysy))
 
-        co_list_str_tam(formatar_pontos(li_val))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*","x")
 
+            wt = wt.replace("*","x")
             Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
             Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_1():
 
@@ -595,23 +754,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_2():
 
@@ -625,23 +827,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_3():
 
@@ -655,23 +900,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_4():
 
@@ -685,23 +973,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_5():
 
@@ -715,23 +1046,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_6():
 
@@ -745,23 +1119,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_7():
 
@@ -775,23 +1192,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_8():
 
@@ -805,23 +1265,66 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
 
     def historico_in_li_9():
 
@@ -835,26 +1338,71 @@ def historico():
 
         for ysy in tss:
             li_val.append("{}".format(ysy))
+        if li_val.count("√") == 1 and li_val.count(",") != 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
 
-        co_list_str_tam(formatar_pontos(li_val))
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        elif li_val.count("√") == 1 and li_val.count(",") == 1:
+            tesx = tss.replace("√","")
+            tesx = tesx.replace("(", "")
+            tesx = tesx.replace(")", "")
+            tesx = tesx.replace(",", ".")
+            tesx = eval(tesx)
+            tesx = sqrt(tesx)
+            tesx = str(tesx)
+            tesx = tesx.replace(".0", "")
+
+            if tesx.count(".") == 1:
+                tesx = tesx.replace(".", ",")
+                co_list_str_tam(tesx)
+            else:
+                co_list_str_tam(tesx)
+        else:
+            co_list_str_tam(formatar_pontos(li_val))
 
         if li_val.count("*"):
             wt = ""
             for dd in li_val:
                 wt = wt + dd
-            wt = wt.replace("*", "x")
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(wt)),
+            wt = wt.replace("*","x")
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(wt)),
                   bg="#838a80", fg="#565b54").grid()
+
         else:
 
-            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1",
-                  text="{}= ".format(list_str(li_val)),
+            Label(lb(), font=("Verdana", 12), anchor="ne", width="32", height="1", text="{}= ".format(list_str(li_val)),
                   bg="#838a80", fg="#565b54").grid()
+
+        if li_val.count("√") and li_val.count(",") != 1:
+            tsss = ""
+            for xxs in li_val:
+                if xxs != "=":
+                    tsss = tsss + xxs
+            tesxs = tsss.replace("√","")
+            tesxs = tesxs.replace("(", "")
+            tesxs = tesxs.replace(")", "")
+            tesxs = eval(tesxs)
+            tesxs = sqrt(tesxs)
+            tesxs = str(tesxs)
+            li_val.clear()
+            for sx in tesxs:
+                li_val.append("{}".format(sx))
+
 
     def historico_in_limpar():
         historico_dic.clear()
+        li_val.clear()
         lab_hist_in.destroy()
 
     def historico_in():
