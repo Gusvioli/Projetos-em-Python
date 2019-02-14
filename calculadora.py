@@ -1535,10 +1535,10 @@ def historico():
     except:
         s = ""
 
-btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico", command=historico)
-btn_hist["bg"] = "#dbe8d4"
-btn_hist["bd"] = 0
-btn_hist.place(x=10, y=2)
+#btn_hist = Button(font=("Verdana", 10), width="8", text="Histórico", command=historico)
+#btn_hist["bg"] = "#dbe8d4"
+#btn_hist["bd"] = 0
+#btn_hist.place(x=10, y=2)
 
 btn_raiz = Button(font=("Verdana", 22), width="4", text="√", command=acao_raiz)
 btn_raiz["bg"] = "#dbe8d4"
@@ -1644,6 +1644,6 @@ j_cal.geometry("350x500+400+200")
 j_cal["bg"] = "#eaf1e7"
 j_cal.tk_focusFollowsMouse()
 j_cal.title("Clube do alfabeto - Calculadora")
-#j_cal.maxsize(width=350, height=500)
+j_cal.maxsize(width=350, height=500)
 j_cal.minsize(width=350, height=500)
 j_cal.mainloop()
