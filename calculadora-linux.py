@@ -512,10 +512,10 @@ def acao_igual():
                 li_val.append(ttsx)
         li_op.append("1")
 
-btn_hist = Button(font=("Verdana", 10), width="9", text="Histórico")
-btn_hist["bg"] = "#dbe8d4"
-btn_hist["bd"] = 1
-btn_hist.place(x=10, y=2)
+#btn_hist = Button(font=("Verdana", 10), width="9", text="Histórico")
+#btn_hist["bg"] = "#dbe8d4"
+#btn_hist["bd"] = 1
+#btn_hist.place(x=10, y=2)
 
 btn_raiz = Button(font=("Verdana", 22), width="3", text="√", command=acao_raiz)
 btn_raiz["bg"] = "#dbe8d4"
