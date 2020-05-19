@@ -1,5 +1,3 @@
-import numpy as np
-import pandas as pd
 from datetime import *
 import random
 
@@ -12,16 +10,11 @@ seg = datetime.today().second
 
 dma = "Hora atual\n{}/{}/{} {}:{}:{}\n".format(dia,mes,ano,hora,min,seg)
 print(dma)
-
+x = 1
 n = []
-
-for x in range(0,10):
+while x <= 1:
     n.append(random.sample(range(1,60), 6))
-
-nn = np.array(n)
-
-nn2 = pd.Series(data=list(nn),index='1 2 3 4 5 6 7 8 9 10'.split())
-
-print(nn2)
-
+    x+=1
+n[0].sort()
+print(n[0])
 
