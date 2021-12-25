@@ -1,3 +1,4 @@
+"""Jogo criado de Blackjack em python"""
 from random import randint
 
 class Blackjack(object):
