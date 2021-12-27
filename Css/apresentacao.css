@@ -3,7 +3,8 @@
   padding: 0;  
 }
 body{
-    background-image: linear-gradient(0deg,black,rgb(0, 109, 128));
+    background-color:rgb(24, 53, 53);
+    background-size: auto;
     height: 100vh;
     color: #fff;
     font-family: verdana, "Helvetica Neue", Helvetica, sans-serif;
@@ -11,7 +12,7 @@ body{
 }
 .portifoleo{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
 }
 .div_topo{
@@ -24,15 +25,16 @@ body{
     font-size: 30px;
 }
 .div_h2{
-    width: 60%;
+    width: 70%;
     font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 50px;
-    text-align: justify;
+    text-align: left;
 }
 .div_img{
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
+    margin-left: 50px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 .a_github{
