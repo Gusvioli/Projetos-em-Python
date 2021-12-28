@@ -20,7 +20,7 @@ body{
     flex-direction: column;
 }
 .div_h1{
-    text-align: justify;
+    text-align: left;
     padding: 50px;
     font-size: 30px;
 }
@@ -29,7 +29,7 @@ body{
     font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding: 50px;
-    text-align: left;
+    text-align: justify;
 }
 .div_img{
     width: 200px;
@@ -40,8 +40,20 @@ body{
 .a_github{
     text-decoration: none;
     text-align: left;
-    padding-left: 50px;
+    margin-right: 5px;
+    margin-top: 15px;
     color: #fff;
-    font-size: 18px;
     font-weight: 400;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    padding-left: 10px;
+}
+a:hover{
+    text-decoration: underline;
+    color: rgb(216, 209, 199);
+}
+address{
+    font-size: 14px;
 }
