@@ -6,13 +6,14 @@ acao_q = []
 acao_q.append("*")
 acao_q.append("**")
 
-dic_acao_q = {1:"",2:"",3:"",4:"",5:"",6:"",7:"",8:"",9:""}
+dic_acao_q = {1: "", 2: "", 3: "", 4: "", 5: "", 6: "", 7: "", 8: "", 9: ""}
 empate_acao_q = []
 ini_acao_q = ["1"]
 
+
 def btn_ini_0():
     ini_acao_q.pop()
-    ini_acao_q.insert(0,"1")
+    ini_acao_q.insert(0, "1")
 
     btn_ini["text"] = "Reiniciar"
     btn_ini["width"] = ("7")
@@ -66,12 +67,16 @@ def btn_ini_0():
     btn_8["text"] = ""
     btn_9["text"] = ""
 
-lab_ = Label(ini_tk, font=("Verdana", 18), anchor="e", width="22", height="2", text="", bg="#000000", fg="#ffffff")
+
+lab_ = Label(ini_tk, font=("Verdana", 18), anchor="e", width="22",
+             height="2", text="", bg="#000000", fg="#ffffff")
 lab_.place(x=4, y=2)
 
-lab_x_o = Label(lab_, font=("Verdana", 17), anchor="s", width="23", height="2", text="", bg="#000000", fg="#ffffff")
+lab_x_o = Label(lab_, font=("Verdana", 17), anchor="s", width="23",
+                height="2", text="", bg="#000000", fg="#ffffff")
 lab_x_o.tk_focusFollowsMouse()
 lab_x_o.grid(column=1, row=1, padx=2)
+
 
 def acao(val, btn):
 
@@ -90,6 +95,7 @@ def acao(val, btn):
         else:
             lab_x_o["text"] = "Sua vez jogador O"
             btn["text"] = "X"
+
 
 def vencedor():
     if dic_acao_q[1] == "X" and dic_acao_q[2] == "X" and dic_acao_q[3] == "X":
@@ -371,71 +377,91 @@ def vencedor():
             btn_8["command"] = ""
             btn_9["command"] = ""
 
+
 def btn_0_1():
     acao(1, btn_1)
     vencedor()
     btn_1["command"] = ""
+
 
 def btn_0_2():
     acao(2, btn_2)
     vencedor()
     btn_2["command"] = ""
 
+
 def btn_0_3():
     acao(3, btn_3)
     vencedor()
     btn_3["command"] = ""
+
 
 def btn_0_4():
     acao(4, btn_4)
     vencedor()
     btn_4["command"] = ""
 
+
 def btn_0_5():
     acao(5, btn_5)
     vencedor()
     btn_5["command"] = ""
+
 
 def btn_0_6():
     acao(6, btn_6)
     vencedor()
     btn_6["command"] = ""
 
+
 def btn_0_7():
     acao(7, btn_7)
     vencedor()
     btn_7["command"] = ""
+
 
 def btn_0_8():
     acao(8, btn_8)
     vencedor()
     btn_8["command"] = ""
 
+
 def btn_0_9():
     acao(9, btn_9)
     vencedor()
     btn_9["command"] = ""
 
-btn_ini = Button(lab_, font=("Verdana", 10), width="6", text="Iniciar", command=btn_ini_0)
+
+btn_ini = Button(lab_, font=("Verdana", 10), width="6",
+                 text="Iniciar", command=btn_ini_0)
 btn_ini.place(x=1, y=1)
 
-btn_1 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_1 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_1.place(x=4, y=75)
-btn_2 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_2 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_2.place(x=124, y=75)
-btn_3 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_3 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_3.place(x=244, y=75)
-btn_4 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_4 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_4.place(x=4, y=175)
-btn_5 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_5 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_5.place(x=124, y=175)
-btn_6 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_6 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_6.place(x=244, y=175)
-btn_7 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_7 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_7.place(x=4, y=275)
-btn_8 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_8 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_8.place(x=124, y=275)
-btn_9 = Button(font=("Verdana", 20), width="5", height="2", text="", command="")
+btn_9 = Button(font=("Verdana", 20), width="5",
+               height="2", text="", command="")
 btn_9.place(x=244, y=275)
 
 ini_tk.geometry("324x310")
@@ -444,4 +470,3 @@ ini_tk.title("Jogo da velha")
 ini_tk.maxsize(width=344, height=370)
 ini_tk.minsize(width=344, height=370)
 ini_tk.mainloop()
-
