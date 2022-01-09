@@ -1,11 +1,13 @@
 import shutil
 import os
 import time
+from tqdm import tqdm
+import progressbar
 
 
 def organizar_arquivos(pasta):
 
-    if os.path.exists(f"{pasta}CAMINHO_ORIGINAL.txt") == False:
+    if os.path.exists(f"{pasta}ARQUIVOS_ORGANIZADOS\\CAMINHO_ORIGINAL.txt") == False:
         # Orgnizador de aarquivos por extenção
         try:
             os.mkdir(f"{pasta}ARQUIVOS_ORGANIZADOS\\")
@@ -13,6 +15,15 @@ def organizar_arquivos(pasta):
             pass
         caminho_alterado = f"{pasta}ARQUIVOS_ORGANIZADOS\\"
         bkpi_dir_cam_ori = []
+
+        for diretorio, subpastas, arquivos in os.walk(pasta):
+
+            for rquivo_0 in arquivos:
+                rquivo_0_cam = os.path.join(diretorio, rquivo_0)
+                rquivo_0_cam2 = os.path.splitext(rquivo_0_cam)
+                if len(rquivo_0_cam2[1]) == 0:
+                    os.renames(rquivo_0_cam, f"{rquivo_0_cam}.DESCONHECIDO")
+
         for diretorio, subpastas, arquivos in os.walk(pasta):
 
             for arquivo in arquivos:
@@ -24,6 +35,7 @@ def organizar_arquivos(pasta):
                     caminho_arqivo3, caminho_arqivo2[1])
                 caminho_arqivo5 = os.path.split(caminho_arqivo4)
                 caminho_arqivo6 = f"{caminho_arqivo5[0]}{caminho_arqivo5[1]}"
+
                 os.renames(caminho_arqivo, caminho_arqivo6)
 
                 if os.path.exists(f"{caminho_alterado}{caminho_arqivo2[1]}".replace(".", "")) == False:
@@ -32,17 +44,18 @@ def organizar_arquivos(pasta):
 
                     print(
                         f"\033[1;36mCRIANDO DIRETÓRIO:\033[0m {caminho_alterado}{caminho_arqivo2[1]} \033[;32m OK \033[m")
-                    time.sleep(0.02)
 
                 print(
                     f"\033[1;36mTRANSFERINDO ARQUIVO:\033[0m {caminho_arqivo} \033[;32m OK \033[m")
-                time.sleep(0.02)
 
                 retirar_Ponto = caminho_arqivo5[1].replace(".", "")
 
                 if retirar_Ponto == retirar_Ponto:
-                    shutil.move(caminho_arqivo6,
-                                f"{caminho_alterado}{retirar_Ponto}\\{arquivo}")
+                    if len(retirar_Ponto) > 0:
+                        shutil.move(caminho_arqivo6,
+                                    f"{caminho_alterado}{retirar_Ponto}\\{arquivo}")
+                else:
+                    pass
 
         # Cria e escreve todos os caminhos dos arquivos anteriores a organização dos arquivos
         with open(f"{caminho_alterado}CAMINHO_ORIGINAL.txt", "w+") as file:
@@ -66,11 +79,17 @@ def organizar_arquivos(pasta):
         if ver_cond2[-1] != "ARQUIVOS_ORGANIZADOS":
             shutil.rmtree(ver_cond)
 
-    time.sleep(0.5)
-    print(
-        f"\033[;32mTODOS OS \033[;37mDIRETÓRIOS\033[m \033[;32mVAZIOS FORAM APAGADOS COM SUCESSO!\033[m")
-    time.sleep(0.5)
+    if os.path.exists(f"{pasta}ARQUIVOS_ORGANIZADOS\\CAMINHO_ORIGINAL.txt") == False:
+        time.sleep(0.5)
+        print(
+            f"\033[;32mTODOS OS \033[;37mDIRETÓRIOS\033[m \033[;32mVAZIOS FORAM APAGADOS COM SUCESSO!\033[m")
+        time.sleep(0.5)
+    else:
+        time.sleep(0.5)
+        print(
+            f"\033[;33mTODOS OS DIRETÓRIOS JÁ FORAM ORGANIZADOS!\033[m")
+        time.sleep(0.5)
 
 
-#pasta_info = input("Digite o diretório a ser organizado(Ex:. C:\dir\ ):")
-organizar_arquivos("F:\\Dir\\")
+pasta_info = input("Digite o diretório a ser organizado(Ex:. C:\dir\ ):")
+organizar_arquivos(pasta_info)
