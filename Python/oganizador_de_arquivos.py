@@ -1,7 +1,5 @@
 import shutil
 import os
-import time
-import numpy as np
 
 # Esse organizador de arquivos está funcionando porem está incompleto, estou trabalhando nele aos poucos...
 
