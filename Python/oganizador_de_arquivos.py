@@ -1,4 +1,3 @@
-from operator import le
 import shutil
 import os
 
@@ -72,8 +71,8 @@ def organizar_arquivos(pasta):
                     pass
     ver = os.listdir(pasta)
 
-    #print(f"{pasta}{ver[1]}")
-    #print(os.path.isdir(f"{pasta}"))
+    # print(f"{pasta}{ver[1]}")
+    # print(os.path.isdir(f"{pasta}"))
     print(ver)
 
 
