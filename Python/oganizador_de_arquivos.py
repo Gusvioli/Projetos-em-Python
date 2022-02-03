@@ -1,3 +1,4 @@
+from operator import le
 import shutil
 import os
 
@@ -47,7 +48,6 @@ def organizar_arquivos(pasta):
         ver_igual_split = os.path.split(ver_igual)
         if ver_igual_split[1] == ver_igual_split[1]:
             """
-    print(add_list3)
 
     # Criar diretórios e mover os arquivos pro diretório respectivos
     for ver_dir in add_list2:
@@ -70,6 +70,11 @@ def organizar_arquivos(pasta):
                     shutil.move(ver_dir, move_dest)
                 except:
                     pass
+    ver = os.listdir(pasta)
+
+    #print(f"{pasta}{ver[1]}")
+    #print(os.path.isdir(f"{pasta}"))
+    print(ver)
 
 
 organizar_arquivos("F:\\Dir\\")
