@@ -87,4 +87,4 @@ def organizar_arquivos(pasta):
         shutil.move(f"{pasta}{mov}", f"{pasta}Arquivos_salvos")
 
 
-organizar_arquivos("F:\\Dir\\")
+organizar_arquivos("C:\\Users\\Grallyan\\Downloads\\")
