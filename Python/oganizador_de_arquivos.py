@@ -7,9 +7,11 @@ import os
 def organizar_arquivos(pasta):
 
     add_list = []
+    add_list_1 = []
     add_list2 = []
     add_list3 = []
     add_list4 = []
+    add_list5 = []
     add_list_arq_cri = []
     x = 0
 
@@ -23,6 +25,8 @@ def organizar_arquivos(pasta):
             cami_arqi_split = os.path.splitext(caminho_arqivo)
             # Adicionar na lista(add_list=[]) diretórios + arquivos separados
             add_list.append(cami_arqi_split)
+            # Adicionar na lista(add_list_1=[]) estenções separados
+            add_list_1.append(cami_arqi_split[1].replace(".", ""))
             # Adicionar na lista(add_list3=[]) diretórios + arquivos juntados
             add_list3.append(caminho_arqivo)
 
@@ -69,11 +73,18 @@ def organizar_arquivos(pasta):
                     shutil.move(ver_dir, move_dest)
                 except:
                     pass
+    # Mover os arquivos repedidos e as pastas para uma o diretório "Arquivos_salvos"
     ver = os.listdir(pasta)
-
-    # print(f"{pasta}{ver[1]}")
-    # print(os.path.isdir(f"{pasta}"))
-    print(ver)
+    vers = list(set(ver) - set(add_list_1))
+    if not os.path.exists(ver_dir[1]):
+        try:
+            # Cria arquivo
+            nome_arq_salvos = f"{pasta}Arquivos_salvos"
+            os.mkdir(nome_arq_salvos)
+        except FileExistsError:
+            pass
+    for mov in vers:
+        shutil.move(f"{pasta}{mov}", f"{pasta}Arquivos_salvos")
 
 
 organizar_arquivos("F:\\Dir\\")
