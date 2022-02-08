@@ -47,11 +47,6 @@ def organizar_arquivos(pasta):
         os.renames(f"{add_list3[x]}", f"{add_list2[x]}")
         x += 1
 
-    """for ver_igual in add_list3:
-        ver_igual_split = os.path.split(ver_igual)
-        if ver_igual_split[1] == ver_igual_split[1]:
-            """
-
     # Criar diretórios e mover os arquivos pro diretório respectivos
     for ver_dir in add_list2:
         # Separar diretórios de extenções
