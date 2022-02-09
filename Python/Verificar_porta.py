@@ -25,7 +25,7 @@ if entrada == "2":
     while True:
         entrada_ip = input("Digite a PORTA:")
         try:
-            if int(entrada_ip) >= 0 and int(entrada_ip) <= 65535:
+            if int(entrada_ip) > 0 and int(entrada_ip) <= 65535:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 ver_s = s.connect_ex((ipAddress, int(entrada_ip)))
                 if ver_s == 0:
