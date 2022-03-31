@@ -10,7 +10,7 @@ def adivinharumero():
             break
         else:
             print(
-                "O numero é {} Não foi dessa vez tente novamente, digite outro numero:".format(x))
+                "O numero sorteado é {} Não foi dessa vez tente novamente, digite outro numero:".format(x))
             continue
 
 
