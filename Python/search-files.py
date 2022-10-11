@@ -8,11 +8,11 @@ def files_path06(*args):
     return l
 
 
-pegaArr = files_path06('./TXT2s/')[0][1]
+pegaArr = files_path06('./TXTs/')[0][1]
 arr = []
 for verTxt in pegaArr:
-    loc = './TXT2s/' + verTxt
-    string1 = 'key'
+    loc = './TXTs/' + verTxt
+    string1 = 'gustavovieiradeoliveira@gmail.com'
     file1 = open(loc, "r", errors = 'ignore')
     readfile = file1.read()
     if string1 in readfile:
