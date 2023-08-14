@@ -1,0 +1,7 @@
+*/*.log
+*/*.venv
+.venv
+venv
+Python/.venv
+Python/.vscode
+Python/__*
