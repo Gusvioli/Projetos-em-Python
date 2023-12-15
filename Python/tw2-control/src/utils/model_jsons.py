@@ -1,0 +1,6 @@
+
+pegar_armazem = {
+    "armazem": {
+
+    }
+}
