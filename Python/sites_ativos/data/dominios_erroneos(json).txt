@@ -1,0 +1,9 @@
+{
+  "dominios_erroneos": [
+    {
+      "ID": "0",
+      "error": "",
+      "data_criacao": ""
+    }
+  ]
+}
