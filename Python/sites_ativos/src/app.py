@@ -14,22 +14,22 @@ class ProductEncoder(json.JSONEncoder):
         return obj.__dict__
     
 def verifica_se_existe(procura):
-    get_json_dimis = pd.read_json('./data/dominios.json')
-    dominios = get_json_dimis['dominios'].to_list()
+    for i in range(2, 27):
+        get_json_dimis = pd.read_json(f'./data/dominios/dominios{i}.json')
+        dominios = get_json_dimis['dominios'].to_list()
 
-    listaDoms = []
+        listaDoms = []
 
-    for i in dominios:
-        listaDoms.append(i['endereco_url_http'])
+        for i in dominios:
+            listaDoms.append(i['endereco_url_http'])
 
-    resultados = list(filter(lambda x: procura in x, listaDoms))
-    return {"s": len(resultados) >= 1, "uid": len(dominios)}
+        resultados = list(filter(lambda x: procura in x, listaDoms))
+        return {"s": len(resultados) >= 1}
     
 
-def dominio(protocolo_nome_extensao, status, id):
+def dominio(protocolo_nome_extensao, status):
     
     dict_lit = {
-        "ID": f'{id}',
         "endereco_url_http": f'{protocolo_nome_extensao}',
         "status": f'{status}',
         "data_criacao": time.strftime("%d/%m/%Y %H:%M:%S")
@@ -89,18 +89,15 @@ def generate_all_words(characters):
                         if len(word + char) > 1:
                             v = f'http://{word + char}{ext}'
                             if verifica_se_existe(v)["s"] == False: 
-                                r_http = rqs.get(v, timeout=3)
+                                r_http = rqs.get(v, timeout=1)
                                 dominio(
                                     v,
-                                    r_http.status_code,
-                                    int(verifica_se_existe(v)["uid"]) + 1
+                                    r_http.status_code
                                 )
-                                time.sleep(1)
                         else:
                             pass
                     except Exception as e:
                         print(e)
-                time.sleep(1)
         all_words.extend(new_words)
         current_words = new_words
 

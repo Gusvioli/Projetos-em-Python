@@ -1,0 +1,9 @@
+{
+  "dominios": [
+    {
+      "endereco_url_http": "https://www.test.com",
+      "status": "000",
+      "data_criacao": "00/00/0000 00:00:00"
+    }
+  ]
+}
