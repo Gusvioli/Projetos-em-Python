@@ -87,3 +87,5 @@
 .webp
 */*.webp
 
+__pycache__/
+
