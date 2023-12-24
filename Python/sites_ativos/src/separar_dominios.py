@@ -34,8 +34,8 @@ def cria_arquivos_dominios(val, listaDoms):
 
 def executar():
     for i in dominios:
-        sel = i['endereco_url_http'].split('/')[2].split('.')[0]
-        if 2 <= len(sel) <= 26:
+        sel = i['name_url_http']
+        if len(sel) <= 26 and len(sel) >= 2:
             listaDoms[len(sel)].append(i)
 
     for x in range(2, 27):
