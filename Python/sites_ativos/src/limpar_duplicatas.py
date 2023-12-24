@@ -23,4 +23,3 @@ def limpar_duplicatas(p1):
             ensure_ascii=False,
             indent=2, cls=ProductEncoder
         )
-

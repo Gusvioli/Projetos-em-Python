@@ -34,13 +34,8 @@ def dominio(protocolo_nome_extensao, status):
             indent=2, cls=ProductEncoder)
 
 def generate_all_words(characters):
-    all_words = []
-    
-    for char in characters:
-        all_words.append(char)
 
-    current_words = list(all_words)
-    
+    current_words = list(characters)   
 
     for _ in range(1, len(characters)):
         new_words = []
@@ -60,14 +55,13 @@ def generate_all_words(characters):
                             pass
                     except Exception as e:
                         print(e)
-        all_words.extend(new_words)
+        current_words.extend(new_words)
         current_words = new_words
 
-    return all_words
+    return current_words
 
 characters = "abcdefghijklmnopqrstuvwxyz"
 all_possible_words = generate_all_words(characters)
-
 
 print(all_possible_words)
 
