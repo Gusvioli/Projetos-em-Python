@@ -6,7 +6,7 @@ import requests as rqs
 
 from cria_dominio import dominio
 
-number_of_characters = 3
+number_of_characters = 14
 
 data_dominios = './data/dominios_mais_usados.json'
 data_dominios_json = pd.read_json(data_dominios)
