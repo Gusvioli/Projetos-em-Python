@@ -6,5 +6,6 @@ CMD [ "bash", "-c", "sudo", "apt", "install", "python3", "&&", "python3", "-m", 
 RUN pip install requests
 RUN pip install pandas
 RUN pip install beautifulsoup4
+RUN pip install mysql-connector-python
 COPY . .
 ENTRYPOINT [ "python3", "src/app.py" ]
