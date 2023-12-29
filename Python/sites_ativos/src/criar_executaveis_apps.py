@@ -34,7 +34,7 @@ def main():
 
     for nome_url_http in gerar_combinacoes(characters, dominios, number_of_characters):
         realizar_requisicao(nome_url_http, dominios[0])
-        time.sleep(0.5)
+        time.sleep(0.1)
 
 if __name__ == "__main__":
     main()"""
