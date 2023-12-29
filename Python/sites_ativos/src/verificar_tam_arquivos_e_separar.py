@@ -24,3 +24,5 @@ def verificar_tam_arquivos_e_separar():
                     )
             else:
                 pass
+    
+    print('(OK) Realizado a verificação e separação de arquivos')

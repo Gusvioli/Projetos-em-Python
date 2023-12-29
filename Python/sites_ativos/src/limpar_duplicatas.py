@@ -46,5 +46,6 @@ def remover_duplicatas(arquivo_json):
 def remover_de_todos(all_json):
     for x in all_json:
         remover_duplicatas(f'data/dominios/{x}')
+    print('(OK) Realizado a remoção de duplicatas')
 
 remover_de_todos(listar_arquivos_em_diretorio('data/dominios'))
