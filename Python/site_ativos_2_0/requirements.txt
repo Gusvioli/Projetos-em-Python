@@ -1,0 +1,5 @@
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+pandas>=2.1.4
+mysql-connector-python>=4.21.13
+python-dotenv>=0.19.1

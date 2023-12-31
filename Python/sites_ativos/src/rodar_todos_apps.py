@@ -1,4 +1,5 @@
 import subprocess
+import time
 
 
 def rodar_todos_apps():    
