@@ -1,14 +1,14 @@
 import time
-from dbs.bd import insert_sites
+from src.dbs.db import insert_sites
 from verificar_tam_arquivos_e_separar import verificar_tam_arquivos_e_separar
 from limpar_duplicatas import listar_arquivos_em_diretorio, remover_de_todos
 
-tempo = 60 * 60
+tempo = 60 * 30
 x = 1
 
 while True:
     try:
-        remover_de_todos(listar_arquivos_em_diretorio('data/dominios'))        
+        remover_de_todos(listar_arquivos_em_diretorio('data/dominios'))  
         time.sleep(3)
         verificar_tam_arquivos_e_separar()
         time.sleep(3)
