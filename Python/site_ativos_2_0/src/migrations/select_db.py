@@ -5,7 +5,14 @@ diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 diretorio_do_modulo = os.path.join(diretorio_atual, '/home/gusvioli/Documentos/projetos/Projetos-em-Python/Python/site_ativos_2_0/src/migrations')
 sys.path.append(diretorio_do_modulo)
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from connect_db import connect
+
+database = os.getenv('DATABASE')
+table = os.getenv('TABLE')
 
 def select_db_all(database, table):
     try:
@@ -23,4 +30,4 @@ def select_db_all(database, table):
         mycursor.close()
 
 if __name__ == "__main__":
-    select_db_all("site_ativos", "url_http")
+    select_db_all(database, table)
