@@ -3,6 +3,13 @@ import json
 import os
 import time
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+database = os.getenv('DATABASE')
+table = os.getenv('TABLE')
+
 def listar_arquivos_em_diretorio(caminho_diretorio):
     try:
         lista = []
@@ -56,5 +63,5 @@ def insert(table, database):
 if __name__ == "__main__":
     while True:
         time.sleep(5)
-        insert('sites', 'sites_ativos') # Insere os sites na tabela
+        insert(table, database) # Insere os sites na tabela
         time.sleep(60 * 60)

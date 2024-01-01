@@ -1,6 +1,6 @@
 import sys
 import os
-import time
+
 # Adicione o diretório ao sys.path
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 
