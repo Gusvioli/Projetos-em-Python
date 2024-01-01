@@ -1,4 +1,7 @@
 # Lista de nomes de arquivos
+import time
+
+
 nomes_arquivos = ['app_2.py', 'app_3.py', 'app_4.py', 'app_5.py', 'app_6.py', 'app_7.py', 'app_8.py', 'app_9.py', 'app_10.py', 'app_11.py', 'app_12.py', 'app_13.py', 'app_14.py', 'app_15.py', 'app_16.py', 'app_17.py', 'app_18.py', 'app_19.py', 'app_20.py', 'app_21.py', 'app_22.py', 'app_23.py', 'app_24.py', 'app_25.py', 'app_26.py']
 
 def codigo_python(number_of_characters, nome_url_http='nome_url_http', dominios='dominios'):
@@ -67,7 +70,9 @@ def run():
         with open(f'src/arquivos_py/apps/{nome_arquivo}', 'w') as arquivo:
             arquivo.write(codigo_python(x))
         x += 1
+    time.sleep(2)
     print("(OK!) Arquivos apps criados com sucesso!")
+    time.sleep(2)
 
 if __name__ == "__main__":
     run()
