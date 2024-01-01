@@ -67,7 +67,7 @@ def run():
         with open(f'src/arquivos_py/apps/{nome_arquivo}', 'w') as arquivo:
             arquivo.write(codigo_python(x))
         x += 1
-    print("Arquivos apps criados com sucesso!")
+    print("(OK!) Arquivos apps criados com sucesso!")
 
 if __name__ == "__main__":
     run()
