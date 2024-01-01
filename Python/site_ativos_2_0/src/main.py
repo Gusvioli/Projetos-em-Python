@@ -16,6 +16,7 @@ from migrations.insert_in_table import insert
 from migrations.db import verificar_tamanho_tabela, db_run
 from arquivos_py.criar_executaveis_apps import run
 from arquivos_py.criar_arquivo_json_dominios import criar_arquivo_json_dominios
+from arquivos_py.limpar_dominios_json import limpar
 
 def main():
     try:
