@@ -1,5 +1,6 @@
 import sys
 import os
+import pickle
 
 # Adicione o diretório ao sys.path
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
@@ -18,13 +19,24 @@ from arquivos_py.criar_executaveis_apps import run
 from arquivos_py.criar_arquivo_json_dominios import criar_arquivo_json_dominios
 from arquivos_py.limpar_dominios_json import limpar
 
+# Função para salvar o estado
+def salvar_estado(nome_arquivo, estado):
+    with open(nome_arquivo, 'wb') as arquivo:
+        pickle.dump(estado, arquivo)
+
+# Função para carregar o estado
+def carregar_estado(nome_arquivo):
+    try:
+        with open(nome_arquivo, 'rb') as arquivo:
+            return pickle.load(arquivo)
+    except FileNotFoundError:
+        return None
+
 def main():
     try:
-        db_run() # Cria o banco de dados e a tabela
-        criar_arquivo_json_dominios() # Cria os arquivos JSON
-        run() # Cria os executáveis
-        rodar() # Roda os executáveis
-
+        db_run()
+        run()
+        rodar()
     except Exception as e:
         print(e)
 

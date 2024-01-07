@@ -25,7 +25,7 @@ def limpar():
         with open(f"src/arquivos_jsons/dominios/{i}", "r") as file:
             jend = json.load(file)
             tam = len(jend['dominios'])
-        if tam >= 500:
+        if tam >= 50:
             with open(f'src/arquivos_jsons/dominios/{i}', 'w') as json_file:
                 json.dump(
                     {"data_criacao": "", "dominios": []},
@@ -41,5 +41,5 @@ if __name__ == "__main__":
     while True:
         time.sleep(5)
         limpar()# Insere os sites na tabela
-        time.sleep(60 * 60)
+        time.sleep(60 * 30)
     
