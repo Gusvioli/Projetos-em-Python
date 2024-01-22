@@ -90,3 +90,6 @@
 __pycache__/
 .env
 
+.pkl/
+Mysql
+*.sql
