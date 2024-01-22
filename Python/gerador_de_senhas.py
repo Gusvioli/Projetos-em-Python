@@ -8,4 +8,4 @@ def gerar_senha(tamanho=24):
 
 # Exemplo de uso
 senha_forte = gerar_senha()
-print(senha_forte)
+print('Senha gerada: {}'.format(senha_forte))
